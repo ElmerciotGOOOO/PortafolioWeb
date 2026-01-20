@@ -828,162 +828,138 @@
                     <h2 class="section-title"><span data-i18n="testimonials.title">Clientes y</span> <span
                             data-i18n="testimonials.title.span">Usuarios</span></h2>
                 </div>
-                <div class="testimonials-grid reveal">
-                    <!-- Testimonio 1 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <div class="client-avatar">
-                                <img src="https://i.pravatar.cc/100?img=12" alt="Cliente">
-                            </div>
-                            <div class="client-info">
-                                <h4 class="client-name">Carlos Mendoza</h4>
-                                <span class="client-app">Fluxy - Music Request</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                        </div>
-                        <p class="testimonial-text" data-i18n="testimonials.1.text">"Fluxy transformó mis streams de
-                            TikTok. Mis seguidores pueden pedir
-                            música desde el chat y la experiencia es increíble. Muy recomendado!"</p>
-                        <div class="client-socials">
-                            <a href="#" class="client-social tiktok" title="TikTok">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                                </svg>
-                            </a>
-                            <a href="#" class="client-social instagram" title="Instagram">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                                </svg>
-                            </a>
-                        </div>
+
+                <!-- Testimonials Slider -->
+                <div class="testimonials-slider-wrapper reveal">
+                    <button class="slider-nav slider-prev" id="testimonialsPrev" aria-label="Anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="testimonials-slider" id="testimonials-container">
+                        <!-- Will be populated by JavaScript -->
                     </div>
 
-                    <!-- Testimonio 2 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <div class="client-avatar">
-                                <img src="https://i.pravatar.cc/100?img=32" alt="Cliente">
-                            </div>
-                            <div class="client-info">
-                                <h4 class="client-name">Ana Sofía Rivera</h4>
-                                <span class="client-app">Dashboard Analytics</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                        </div>
-                        <p class="testimonial-text">"El dashboard que me desarrolló es exactamente lo que necesitaba
-                            para mi negocio. Datos en tiempo real y una interfaz muy profesional."</p>
-                        <div class="client-socials">
-                            <a href="#" class="client-social facebook" title="Facebook">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                </svg>
-                            </a>
-                            <a href="#" class="client-social instagram" title="Instagram">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    <button class="slider-nav slider-next" id="testimonialsNext" aria-label="Siguiente">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
 
-                    <!-- Testimonio 3 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <div class="client-avatar">
-                                <img src="https://i.pravatar.cc/100?img=57" alt="Cliente">
-                            </div>
-                            <div class="client-info">
-                                <h4 class="client-name">Miguel Ángel Torres</h4>
-                                <span class="client-app">App de Gestión</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#fbbf24">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                        </div>
-                        <p class="testimonial-text">"La app de gestión facilitó todo el control de mi inventario.
-                            Interfaz intuitiva y funciona perfectamente en cualquier dispositivo."</p>
-                        <div class="client-socials">
-                            <a href="#" class="client-social tiktok" title="TikTok">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                                </svg>
-                            </a>
-                            <a href="#" class="client-social facebook" title="Facebook">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                <!-- Submit testimonial button -->
+                <div class="testimonial-cta reveal" style="text-align: center; margin-top: 2rem;">
+                    <a href="/testimonios/enviar" class="btn btn-secondary"
+                        style="display: inline-flex; align-items: center; gap: 10px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 5v14M5 12h14" />
+                        </svg>
+                        <span data-i18n="testimonials.submit">Dejar mi Testimonio</span>
+                    </a>
                 </div>
             </div>
+
+            <style>
+                @keyframes spin {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .testimonials-slider-wrapper {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+                
+                .testimonials-slider {
+                    display: flex;
+                    gap: 1.5rem;
+                    overflow: hidden;
+                    scroll-behavior: smooth;
+                    flex: 1;
+                    padding: 1rem 0;
+                }
+                
+                .testimonials-slider .testimonial-card {
+                    flex: 0 0 calc(33.333% - 1rem);
+                    min-width: 300px;
+                }
+                
+                @media (max-width: 1024px) {
+                    .testimonials-slider .testimonial-card {
+                        flex: 0 0 calc(50% - 0.75rem);
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    .testimonials-slider .testimonial-card {
+                        flex: 0 0 85%;
+                    }
+                    .slider-nav { display: none !important; }
+                    .testimonials-slider {
+                        overflow-x: auto;
+                        scroll-snap-type: x mandatory;
+                        -webkit-overflow-scrolling: touch;
+                    }
+                    .testimonials-slider .testimonial-card { scroll-snap-align: start; }
+                }
+                
+                .slider-nav {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: rgba(0, 80, 255, 0.1);
+                    border: 1px solid rgba(0, 80, 255, 0.3);
+                    color: #0050FF;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s;
+                    flex-shrink: 0;
+                }
+                
+                .slider-nav:hover {
+                    background: rgba(0, 80, 255, 0.2);
+                    transform: scale(1.1);
+                }
+                
+                .slider-nav:disabled {
+                    opacity: 0.3;
+                    cursor: not-allowed;
+                    transform: none;
+                }
+                
+                .testimonials-placeholder {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 3rem 2rem;
+                    background: linear-gradient(145deg, rgba(20, 20, 35, 0.5), rgba(15, 15, 25, 0.5));
+                    border: 1px dashed rgba(0, 80, 255, 0.3);
+                    border-radius: 20px;
+                    min-height: 200px;
+                }
+                
+                .testimonials-placeholder h4 {
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 1.1rem;
+                    margin-bottom: 0.5rem;
+                }
+                
+                .testimonials-placeholder p {
+                    color: rgba(255, 255, 255, 0.4);
+                    font-size: 0.9rem;
+                }
+            </style>
         </section>
 
         <section class="services">
@@ -1453,6 +1429,13 @@
             }
         });
     </script>
+
+    <!-- Firebase SDK for Testimonials (Realtime Database) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="{{ asset('js/firebase-config.js') }}"></script>
+    <script src="{{ asset('js/testimonials.js') }}"></script>
 </body>
 
 </html>
