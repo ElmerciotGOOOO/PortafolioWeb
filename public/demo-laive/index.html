@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAIVE V2 - Demo | Sistema de Control de Producción Industrial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../LogoLaive.png">
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <span class="demo-banner__badge">DEMO</span>
+        <span>Esta es una demostración web del software de escritorio LAIVE V2</span>
+    </div>
+
+    <!-- App Container -->
+    <div id="app" class="app-container">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen login-screen active">
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="login-logo">
+                        <img src="../LogoLaive.png" alt="Laive Logo">
+                    </div>
+                    <h1 class="login-title">LAIVE V2</h1>
+                    <p class="login-subtitle">Sistema de Control de Producción</p>
+                </div>
+                <form class="login-form" id="login-form">
+                    <div class="login-form__group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" placeholder="usuario@laive.com" value="demo@laive.com">
+                    </div>
+                    <div class="login-form__group">
+                        <label for="password">Contraseña</label>
+                        <div class="login-form__input-wrapper">
+                            <input type="password" id="password" placeholder="••••••••" value="demo123">
+                            <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-form__submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Iniciar Sesión</span>
+                    </button>
+                </form>
+                <div class="login-footer">
+                    <p>© 2026 LAIVE - Control de Producción Industrial</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen home-screen">
+            <div class="home-bg-effects">
+                <div class="home-glow home-glow--1"></div>
+                <div class="home-glow home-glow--2"></div>
+            </div>
+            <div class="home-content">
+                <div class="home-logo-container">
+                    <img src="../LogoLaive.png" alt="Laive" class="home-logo">
+                    <div class="home-logo-glow"></div>
+                </div>
+                <h1 class="home-title">Sistema de Control de Producción</h1>
+                <p class="home-subtitle">Seleccione el modo de operación</p>
+                <div class="home-buttons">
+                    <button class="home-btn home-btn--primary" onclick="selectMode('arranque-griego')">
+                        <span class="home-btn__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 21h18"></path>
+                                <path d="M9 8h1"></path>
+                                <path d="M9 12h1"></path>
+                                <path d="M9 16h1"></path>
+                                <path d="M14 8h1"></path>
+                                <path d="M14 12h1"></path>
+                                <path d="M14 16h1"></path>
+                                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                            </svg>
+                        </span>
+                        <span class="home-btn__text">
+                            <span class="home-btn__title">ARRANQUE GRIEGO</span>
+                            <span class="home-btn__desc">Fase 1 y Fase 2 - Producción Griego</span>
+                        </span>
+                    </button>
+                    <button class="home-btn home-btn--secondary" onclick="selectMode('griego-laive')">
+                        <span class="home-btn__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </span>
+                        <span class="home-btn__text">
+                            <span class="home-btn__title">GRIEGO - LAIVE</span>
+                            <span class="home-btn__desc">Fase 1 y Fase 2 - Producción Laive</span>
+                        </span>
+                    </button>
+                    <button class="home-btn home-btn--tertiary" onclick="showHistory()">
+                        <span class="home-btn__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </span>
+                        <span class="home-btn__text">
+                            <span class="home-btn__title">HISTORIAL</span>
+                            <span class="home-btn__desc">Estadísticas y Análisis</span>
+                        </span>
+                    </button>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Cerrar Sesión
+                </button>
+                <div class="home-footer">
+                    <span>LAIVE V2.0</span>
+                    <span>•</span>
+                    <span>Control de Producción Industrial</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Production Screen -->
+        <div id="production-screen" class="screen production-screen">
+            <!-- Timer Section -->
+            <div class="timer-section">
+                <div class="timer-section__logo">
+                    <img src="../LogoLaive.png" alt="Laive" class="logo-image">
+                </div>
+                <div class="timer-section__center">
+                    <div class="timer-controls">
+                        <button class="timer-btn timer-btn--home" onclick="goHome()" title="Volver al Inicio">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </button>
+                        <button class="timer-btn timer-btn--phase-active" id="phase1-btn" onclick="goToPhase(1)" title="Ir a Fase 1">
+                            <span>F1</span>
+                        </button>
+                        <button class="timer-btn" id="phase2-btn" onclick="goToPhase(2)" title="Ir a Fase 2">
+                            <span>F2</span>
+                        </button>
+                        <div class="timer-divider"></div>
+                        <button class="timer-btn" id="play-btn" onclick="toggleTimer()" title="Iniciar/Pausar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" id="play-icon">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" id="pause-icon" style="display:none">
+                                <rect x="6" y="4" width="4" height="16"></rect>
+                                <rect x="14" y="4" width="4" height="16"></rect>
+                            </svg>
+                        </button>
+                        <button class="timer-btn" onclick="resetTimer()" title="Restaurar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                            </svg>
+                        </button>
+                        <button class="timer-btn" onclick="toggleFullscreen()" title="Pantalla Completa">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                            </svg>
+                        </button>
+                        <div class="timer-divider"></div>
+                        <button class="timer-btn timer-btn--finish" onclick="finishPhase()" title="Finalizar">
+                            FINALIZAR
+                        </button>
+                    </div>
+                    <div class="timer" id="timer-display">
+                        <span class="timer__label">Tiempo de Corrida</span>
+                        <span class="timer__value" id="timer-value">00:00:00</span>
+                    </div>
+                </div>
+                <div class="timer-section__progress">
+                    <div class="progress-indicator">
+                        <svg class="progress-ring" width="80" height="80">
+                            <circle class="progress-ring__bg" cx="40" cy="40" r="35" fill="none" stroke="#333" stroke-width="6"/>
+                            <circle class="progress-ring__fill" id="progress-circle" cx="40" cy="40" r="35" fill="none" stroke="#00A651" stroke-width="6" stroke-linecap="round" transform="rotate(-90 40 40)" stroke-dasharray="219.91" stroke-dashoffset="219.91"/>
+                        </svg>
+                        <span class="progress-value" id="progress-value">0%</span>
+                    </div>
+                    <span class="phase-badge" id="phase-badge">FASE 1</span>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-section">
+                <div class="progress-bar-container" id="progress-bar" onclick="seekProgress(event)">
+                    <div class="progress-bar__fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-bar-labels">
+                    <span id="current-time">00:00</span>
+                    <span id="total-time">29:00</span>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <div class="left-panel">
+                    <!-- Operator Cards -->
+                    <div class="operator-card" id="op-maquinista">
+                        <div class="operator-card__header">
+                            <div class="operator-card__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                    <path d="M5.5 21a8.38 8.38 0 0 1 13 0"></path>
+                                </svg>
+                            </div>
+                            <div class="operator-card__info">
+                                <h3>Maquinista Envasado</h3>
+                                <span>Envasadora</span>
+                            </div>
+                            <div class="operator-card__time" id="op1-time">05:00</div>
+                        </div>
+                        <div class="operator-card__task" id="op1-task">Colocación de EPPS</div>
+                        <div class="operator-card__progress">
+                            <div class="operator-card__progress-fill" id="op1-progress"></div>
+                        </div>
+                    </div>
+                    <div class="operator-card" id="op-ayudante">
+                        <div class="operator-card__header">
+                            <div class="operator-card__icon operator-card__icon--blue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="operator-card__info">
+                                <h3>Ayudante Envasado</h3>
+                                <span>Envasadora</span>
+                            </div>
+                            <div class="operator-card__time" id="op2-time">05:00</div>
+                        </div>
+                        <div class="operator-card__task" id="op2-task">Colocación de EPPS</div>
+                        <div class="operator-card__progress">
+                            <div class="operator-card__progress-fill" id="op2-progress"></div>
+                        </div>
+                    </div>
+                    <div class="operator-card" id="op-paletizador1">
+                        <div class="operator-card__header">
+                            <div class="operator-card__icon operator-card__icon--purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                            </div>
+                            <div class="operator-card__info">
+                                <h3>Paletizador 1</h3>
+                                <span>Tapadora</span>
+                            </div>
+                            <div class="operator-card__time" id="op3-time">05:00</div>
+                        </div>
+                        <div class="operator-card__task" id="op3-task">Colocación de EPPS</div>
+                        <div class="operator-card__progress">
+                            <div class="operator-card__progress-fill" id="op3-progress"></div>
+                        </div>
+                    </div>
+                    <div class="operator-card" id="op-paletizador2">
+                        <div class="operator-card__header">
+                            <div class="operator-card__icon operator-card__icon--purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                            </div>
+                            <div class="operator-card__info">
+                                <h3>Paletizador 2</h3>
+                                <span>Tapadora</span>
+                            </div>
+                            <div class="operator-card__time" id="op4-time">05:00</div>
+                        </div>
+                        <div class="operator-card__task" id="op4-task">Colocación de EPPS</div>
+                        <div class="operator-card__progress">
+                            <div class="operator-card__progress-fill" id="op4-progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider-vertical"></div>
+
+                <div class="right-panel">
+                    <!-- Section Cards -->
+                    <div class="section-card">
+                        <div class="section-card__header">
+                            <div class="section-card__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                </svg>
+                            </div>
+                            <h2>Envasadora</h2>
+                        </div>
+                        <div class="section-card__operators">
+                            <div class="section-operator">
+                                <span class="section-operator__name">👤 Maquinista</span>
+                                <span class="section-operator__task" id="sec1-op1">Colocación de EPPS</span>
+                            </div>
+                            <div class="section-operator">
+                                <span class="section-operator__name">👥 Ayudante</span>
+                                <span class="section-operator__task" id="sec1-op2">Colocación de EPPS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card section-card--red">
+                        <div class="section-card__header">
+                            <div class="section-card__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                            </div>
+                            <h2>Tapadora</h2>
+                        </div>
+                        <div class="section-card__operators">
+                            <div class="section-operator">
+                                <span class="section-operator__name">🚚 Paletizador 1</span>
+                                <span class="section-operator__task" id="sec2-op1">Colocación de EPPS</span>
+                            </div>
+                            <div class="section-operator">
+                                <span class="section-operator__name">🚚 Paletizador 2</span>
+                                <span class="section-operator__task" id="sec2-op2">Colocación de EPPS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Screen -->
+        <div id="history-screen" class="screen history-screen">
+            <div class="history-header">
+                <div class="history-header__left">
+                    <button class="back-btn" onclick="goHome()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </button>
+                    <img src="../LogoLaive.png" alt="Laive" class="history-logo">
+                    <div class="history-title">
+                        <h1>HISTORIAL DE PRODUCCIÓN</h1>
+                        <span>Análisis y Estadísticas en Tiempo Real</span>
+                    </div>
+                </div>
+            </div>
+            <div class="history-kpis">
+                <div class="kpi-card kpi-card--blue">
+                    <div class="kpi-card__icon">📊</div>
+                    <div class="kpi-card__content">
+                        <span class="kpi-card__value">24</span>
+                        <span class="kpi-card__title">Total Sesiones</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-card--green">
+                    <div class="kpi-card__icon">✅</div>
+                    <div class="kpi-card__content">
+                        <span class="kpi-card__value">79%</span>
+                        <span class="kpi-card__title">A Tiempo</span>
+                        <span class="kpi-card__subtitle">19 sesiones</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-card--red">
+                    <div class="kpi-card__icon">⚠️</div>
+                    <div class="kpi-card__content">
+                        <span class="kpi-card__value">21%</span>
+                        <span class="kpi-card__title">Con Retraso</span>
+                        <span class="kpi-card__subtitle">5 sesiones</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-card--yellow">
+                    <div class="kpi-card__icon">📈</div>
+                    <div class="kpi-card__content">
+                        <span class="kpi-card__value">96.5%</span>
+                        <span class="kpi-card__title">Eficiencia Promedio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Modo</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
+                            <th>Fase 1</th>
+                            <th>Fase 2</th>
+                            <th>Total</th>
+                            <th>Eficiencia</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dom 19/01</td>
+                            <td><span class="mode-badge mode-badge--green">ARRANQUE GRIEGO</span></td>
+                            <td>08:00:15</td>
+                            <td>09:45:22</td>
+                            <td class="status--success">28m 45s</td>
+                            <td class="status--success">76m 22s</td>
+                            <td><strong>1h 45m 07s</strong></td>
+                            <td><span class="efficiency-badge" style="background:#00A651">102%</span></td>
+                            <td><span class="grade-badge" style="background:#00A651">EXCELENTE</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sab 18/01</td>
+                            <td><span class="mode-badge mode-badge--red">GRIEGO - LAIVE</span></td>
+                            <td>07:30:00</td>
+                            <td>09:22:18</td>
+                            <td class="status--success">27m 12s</td>
+                            <td class="status--error">85m 06s</td>
+                            <td><strong>1h 52m 18s</strong></td>
+                            <td><span class="efficiency-badge" style="background:#FFA000">92%</span></td>
+                            <td><span class="grade-badge" style="background:#FFA000">BIEN</span></td>
+                        </tr>
+                        <tr>
+                            <td>Vie 17/01</td>
+                            <td><span class="mode-badge mode-badge--green">ARRANQUE GRIEGO</span></td>
+                            <td>08:15:30</td>
+                            <td>09:58:45</td>
+                            <td class="status--success">29m 00s</td>
+                            <td class="status--success">74m 15s</td>
+                            <td><strong>1h 43m 15s</strong></td>
+                            <td><span class="efficiency-badge" style="background:#00A651">105%</span></td>
+                            <td><span class="grade-badge" style="background:#00A651">EXCELENTE</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jue 16/01</td>
+                            <td><span class="mode-badge mode-badge--green">ARRANQUE GRIEGO</span></td>
+                            <td>07:45:00</td>
+                            <td>09:35:30</td>
+                            <td class="status--success">28m 30s</td>
+                            <td class="status--success">82m 00s</td>
+                            <td><strong>1h 50m 30s</strong></td>
+                            <td><span class="efficiency-badge" style="background:#4CAF50">98%</span></td>
+                            <td><span class="grade-badge" style="background:#4CAF50">MUY BIEN</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mie 15/01</td>
+                            <td><span class="mode-badge mode-badge--red">GRIEGO - LAIVE</span></td>
+                            <td>08:00:00</td>
+                            <td>10:05:42</td>
+                            <td class="status--error">32m 18s</td>
+                            <td class="status--error">93m 24s</td>
+                            <td><strong>2h 05m 42s</strong></td>
+                            <td><span class="efficiency-badge" style="background:#C8102E">87%</span></td>
+                            <td><span class="grade-badge" style="background:#C8102E">MEJORAR</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Finish Modal -->
+        <div id="finish-modal" class="modal">
+            <div class="modal-content finish-modal">
+                <div class="finish-modal__header">
+                    <h2>🎉 ¡Sesión Completada!</h2>
+                </div>
+                <div class="finish-modal__stats">
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <span class="stat-label">Hora Inicio</span>
+                            <span class="stat-value" id="stat-start">--:--:--</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Hora Fin</span>
+                            <span class="stat-value" id="stat-end">--:--:--</span>
+                        </div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-row">
+                        <div class="stat-box stat-box--phase1">
+                            <span class="stat-label">Fase 1</span>
+                            <span class="stat-value" id="stat-phase1">00:00</span>
+                            <span class="stat-target">Meta: 29:00</span>
+                        </div>
+                        <div class="stat-box stat-box--phase2">
+                            <span class="stat-label">Fase 2</span>
+                            <span class="stat-value" id="stat-phase2">00:00</span>
+                            <span class="stat-target">Meta: 80:00</span>
+                        </div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-total">
+                        <div class="stat-total__time">
+                            <span class="stat-label">Tiempo Total</span>
+                            <span class="stat-value stat-value--large" id="stat-total">00:00:00</span>
+                        </div>
+                        <div class="stat-total__grade" id="stat-grade">
+                            EXCELENTE
+                        </div>
+                    </div>
+                </div>
+                <button class="finish-modal__btn" onclick="closeFinishModal()">
+                    Volver al Inicio
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
