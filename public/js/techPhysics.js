@@ -22,7 +22,7 @@
         // Local images
         { url: 'img/visualcode.webp', color: '#007ACC' },
         { url: 'img/python.webp', color: '#3776AB' },
-        { url: 'img/ddsadasdsa.png', color: '#E34F26' },
+        { url: 'img/html.webp', color: '#E34F26' },
         { url: 'img/css.webp', color: '#1572B6' },
         { url: 'img/js.webp', color: '#F7DF1E' },
         // CDN icons

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -115,6 +115,19 @@
         <!-- Header vacío, solo para detectar scroll -->
         <header class="header header-premium"></header>
 
+        <!-- Language Toggle -->
+        <button id="langToggle" onclick="toggleLanguage()"
+            style="position: fixed; top: 80px; right: 20px; z-index: 9998; display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgba(10, 10, 20, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px; cursor: pointer; transition: all 0.3s ease;"
+            onmouseover="this.style.borderColor='rgba(0, 80, 255, 0.5)'; this.style.boxShadow='0 5px 20px rgba(0, 80, 255, 0.2)';"
+            onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.15)'; this.style.boxShadow='none';">
+            <svg class="lang-flag" width="20" height="15" viewBox="0 0 32 24" style="border-radius: 3px;">
+                <rect width="32" height="24" fill="#AA151B" />
+                <rect y="6" width="32" height="12" fill="#F1BF00" />
+            </svg>
+            <span class="lang-text"
+                style="color: #fff; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">ES</span>
+        </button>
+
         <!-- Nav izquierdo - independiente -->
         <div class="nav-left">
             <a href="#inicio" class="nav-link active">
@@ -129,7 +142,7 @@
                         d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15"
                         stroke="url(#homeGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>Inicio</span>
+                <span data-i18n="nav.home">Inicio</span>
             </a>
             <a href="#about" class="nav-link">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +158,7 @@
                     <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="url(#userGrad)"
                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>Acerca</span>
+                <span data-i18n="nav.about">Acerca</span>
             </a>
         </div>
 
@@ -167,7 +180,7 @@
                     <path d="M8 9L4 12L8 15M16 9L20 12L16 15M14 4L10 20" stroke="url(#codeGrad)" stroke-width="2.5"
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>Proyectos</span>
+                <span data-i18n="nav.projects">Proyectos</span>
             </a>
             <a href="#contact" class="nav-link">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,7 +195,7 @@
                         d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z"
                         stroke="url(#contactGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>Contacto</span>
+                <span data-i18n="nav.contact">Contacto</span>
             </a>
         </div>
 
@@ -190,15 +203,18 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-left">
-                        <div class="hero-badge"><span class="dot"></span>Disponible para proyectos</div>
-                        <h1 class="hero-title">Hola, soy <span class="name">Elmer</span></h1>
+                        <div class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">Disponible para
+                                proyectos</span></div>
+                        <h1 class="hero-title"><span data-i18n="hero.title">Hola, soy</span> <span
+                                class="name">Elmer</span></h1>
                         <div class="hero-subtitle"><span id="typewriter"></span><span class="cursor">|</span></div>
-                        <p class="hero-description">Transformo ideas en software de alto nivel mediante IA avanzada.
+                        <p class="hero-description" data-i18n="hero.description">Transformo ideas en software de alto
+                            nivel mediante IA avanzada.
                             Desarrollo desde sistemas web y automatizaciones en Python hasta aplicaciones APK y de
                             escritorio. Mi enfoque: código inteligente, desarrollo acelerado y experiencias digitales de
                             impacto.</p>
                         <div class="hero-buttons">
-                            <a href="#" class="btn btn-primary">
+                            <a href="javascript:void(0)" onclick="openCVModal()" class="btn btn-primary">
                                 <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
                                     <defs>
                                         <linearGradient id="cvIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -215,7 +231,7 @@
                                     <path d="M12 11V17M12 17L9 14M12 17L15 14" stroke="url(#cvIconGrad)"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                <span>Descargar CV</span>
+                                <span data-i18n="hero.btn.cv">Descargar CV</span>
                             </a>
                             <a href="#contact" class="btn btn-secondary">
                                 <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -234,47 +250,52 @@
                                     <circle cx="12.5" cy="11.5" r="1" fill="url(#contactIconGrad)" />
                                     <circle cx="16.5" cy="11.5" r="1" fill="url(#contactIconGrad)" />
                                 </svg>
-                                <span>Contactar</span>
+                                <span data-i18n="hero.btn.contact">Contactar</span>
                             </a>
                         </div>
                         <!-- Redes Sociales -->
                         <div class="hero-social-bar hero-social-left">
-                            <a href="#" class="social-icon tiktok" title="TikTok">
+                            <a href="https://www.tiktok.com/@elmernew6?is_from_webapp=1&sender_device=pc"
+                                target="_blank" class="social-icon tiktok" title="TikTok">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                                 </svg>
                                 <span class="social-tooltip">TikTok</span>
                             </a>
-                            <a href="#" class="social-icon whatsapp" title="WhatsApp">
+                            <a href="https://wa.me/51961349020" target="_blank" class="social-icon whatsapp"
+                                title="WhatsApp">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                                 </svg>
                                 <span class="social-tooltip">WhatsApp</span>
                             </a>
-                            <a href="#" class="social-icon instagram" title="Instagram">
+                            <a href="https://www.instagram.com/elmerciot?igsh=MWFtcWI3czgyZjc5cA==" target="_blank"
+                                class="social-icon instagram" title="Instagram">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                                 <span class="social-tooltip">Instagram</span>
                             </a>
-                            <a href="#" class="social-icon facebook" title="Facebook">
+                            <a href="https://www.facebook.com/share/1PQMWqSxJK/" target="_blank"
+                                class="social-icon facebook" title="Facebook">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </svg>
                                 <span class="social-tooltip">Facebook</span>
                             </a>
-                            <a href="#" class="social-icon github" title="GitHub">
+                            <a href="https://github.com/ElmerciotGOOOO" target="_blank" class="social-icon github"
+                                title="GitHub">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
                                 <span class="social-tooltip">GitHub</span>
                             </a>
-                            <a href="mailto:tu@email.com" class="social-icon email" title="Email">
+                            <a href="mailto:elmeroff.dc@gmail.com" class="social-icon email" title="Email">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path
                                         d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -301,19 +322,19 @@
                 <div class="stats-grid">
                     <div class="stat-item reveal">
                         <div class="stat-number" data-target="2">0</div>
-                        <div class="stat-label">Años Exp.</div>
+                        <div class="stat-label" data-i18n="stats.years">Años Exp.</div>
                     </div>
                     <div class="stat-item reveal">
-                        <div class="stat-number" data-target="5">0</div>
-                        <div class="stat-label">Proyectos</div>
+                        <div class="stat-number" data-target="5" id="projectCount">0</div>
+                        <div class="stat-label" data-i18n="stats.projects">Proyectos</div>
                     </div>
                     <div class="stat-item reveal">
                         <div class="stat-number" data-target="0">0</div>
-                        <div class="stat-label">Clientes</div>
+                        <div class="stat-label" data-i18n="stats.clients">Clientes</div>
                     </div>
                     <div class="stat-item reveal">
                         <div class="stat-number" data-target="100">0</div>
-                        <div class="stat-label">% Compromiso</div>
+                        <div class="stat-label" data-i18n="stats.commitment">% Compromiso</div>
                     </div>
                 </div>
             </div>
@@ -321,8 +342,9 @@
 
         <section class="about" id="about">
             <div class="container">
-                <div class="section-header reveal"><span class="section-tag">Conóceme</span>
-                    <h2 class="section-title">Acerca de <span>Mí</span></h2>
+                <div class="section-header reveal"><span class="section-tag" data-i18n="about.tag">Conóceme</span>
+                    <h2 class="section-title"><span data-i18n="about.title">Acerca de</span> <span
+                            data-i18n="about.title.span">Mí</span></h2>
                 </div>
                 <div class="about-grid">
                     <!-- Tarjeta de Perfil Profesional -->
@@ -345,7 +367,7 @@
                                         fill="currentColor" />
                                 </svg>
                                 <span class="dot-new"></span>
-                                Disponible para Desarrollo con IA Avanzada
+                                <span data-i18n="about.status">Disponible para Desarrollo con IA Avanzada</span>
                             </div>
 
                             <h1 class="profile-name">Rafael Elmer<br>Huaynate Trinidad</h1>
@@ -356,7 +378,7 @@
                                 <span>Full Stack & Automation Dev</span>
                             </p>
 
-                            <p class="profile-description">
+                            <p class="profile-description" data-i18n="about.bio">
                                 Ingeniero de Software especializado en <strong>AI-Driven Development</strong>.
                                 Utilizo Claude API, Gemini y técnicas avanzadas de Prompt Engineering para
                                 construir software de complejidad industrial en tiempo récord. Creo interfaces
@@ -386,7 +408,7 @@
                                         <path
                                             d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                     </svg>
-                                    <span>Ate, Lima, Perú</span>
+                                    <span data-i18n="about.location">Ate, Lima, Perú</span>
                                 </div>
                             </div>
 
@@ -465,7 +487,7 @@
                                 <path d="M12 6V12L16 14" stroke="url(#clockGradient)" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span>Mi Zona Horaria</span>
+                            <span data-i18n="about.timezone.title">Mi Zona Horaria</span>
                         </h3>
                         <div class="timezone-card-content">
                             <div class="stars-container" id="starsContainer"></div>
@@ -479,7 +501,7 @@
                                         <rect x="0" y="0" width="28" height="20" rx="3" stroke="rgba(255,255,255,0.3)"
                                             stroke-width="0.5" fill="none" />
                                     </svg>
-                                    <span class="country-name">Perú</span>
+                                    <span class="country-name" data-i18n="about.timezone.country">Perú</span>
                                 </div>
                                 <div class="time-display" id="currentTime">00:00</div>
                                 <div class="zone-row">
@@ -496,7 +518,7 @@
                                             d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
                                             fill="url(#locationGradient)" />
                                     </svg>
-                                    <span class="zone-text">Lima, América</span>
+                                    <span class="zone-text" data-i18n="about.timezone.city">Lima, América</span>
                                 </div>
                             </div>
                             <!-- Animated Astronaut with Peru Flag -->
@@ -577,7 +599,7 @@
                                 <path d="M8 9L4 12L8 15M16 9L20 12L16 15M14 4L10 20" stroke="url(#expTitleGrad)"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span>Mi Experiencia</span>
+                            <span data-i18n="about.expertise.title">Mi Experiencia</span>
                         </h3>
                         <div class="expertise-grid-new">
                             <!-- AI & Automation -->
@@ -659,8 +681,8 @@
                                     </svg>
                                 </div>
                                 <div class="expertise-text">
-                                    <strong>Diseño Digital</strong>
-                                    <span>UI/UX, Assets premium, Canvas</span>
+                                    <strong data-i18n="about.expertise.design">Diseño Digital</strong>
+                                    <span data-i18n="about.expertise.design.desc">UI/UX, Assets premium, Canvas</span>
                                 </div>
                             </div>
 
@@ -690,8 +712,9 @@
 
         <section class="projects" id="projects">
             <div class="container">
-                <div class="section-header reveal"><span class="section-tag">Portafolio</span>
-                    <h2 class="section-title">Mis <span>Proyectos</span></h2>
+                <div class="section-header reveal"><span class="section-tag" data-i18n="projects.tag">Portafolio</span>
+                    <h2 class="section-title"><span data-i18n="projects.title">Mis</span> <span
+                            data-i18n="projects.title.span">Proyectos</span></h2>
                 </div>
 
                 <!-- Slider Container -->
@@ -714,15 +737,15 @@
                                         style="font-size: 4rem; background: linear-gradient(135deg, #25F4EE, #FE2C55, #000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                                     <div class="project-overlay" style="position: absolute; top: 12px; right: 12px;">
                                         <span class="project-status"
-                                            style="background: linear-gradient(135deg, #22c55e, #16a34a); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓
-                                            Completado</span>
+                                            style="background: linear-gradient(135deg, #22c55e, #16a34a); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);"
+                                            data-i18n="projects.fluxy.status">Completado</span>
                                     </div>
                                 </div>
                                 <div class="project-content" style="padding: 1.5rem;">
                                     <h3 class="project-title"
                                         style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
                                         Fluxy - Music Request</h3>
-                                    <p class="project-description"
+                                    <p class="project-description" data-i18n="projects.fluxy.desc"
                                         style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75); line-height: 1.6; margin-bottom: 1.25rem;">
                                         App de escritorio para streamers de TikTok. Tu audiencia pide música desde el
                                         chat en tiempo real.</p>
@@ -736,8 +759,9 @@
                                             style="padding: 6px 12px; background: rgba(255, 196, 0, 0.1); border: 1px solid rgba(255, 196, 0, 0.3); border-radius: 8px; font-size: 0.75rem; color: #ffc400; font-weight: 600;">Firebase</span>
                                     </div>
                                     <a href="/fluxy" target="_blank" class="project-link"
-                                        style="display: inline-flex; align-items: center; gap: 8px; color: #FF3366; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: gap 0.3s ease;">Ver
-                                        Proyecto <i class="fas fa-arrow-right"></i></a>
+                                        style="display: inline-flex; align-items: center; gap: 8px; color: #FF3366; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: gap 0.3s ease;"><span
+                                            data-i18n="projects.view">Ver
+                                            Proyecto</span> <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
 
@@ -751,21 +775,19 @@
                                         style="width: 100px; height: 100px; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(212, 160, 18, 0.4));">
                                     <!-- Badges -->
                                     <div style="position: absolute; top: 12px; left: 12px;">
-                                        <span
-                                            style="background: linear-gradient(135deg, #D4A012, #F59E0B); padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(212, 160, 18, 0.4);">📁
-                                            Personal</span>
+                                        <span data-i18n="projects.laive.badge"
+                                            style="background: linear-gradient(135deg, #D4A012, #F59E0B); padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(212, 160, 18, 0.4);">Personal</span>
                                     </div>
                                     <div class="project-overlay" style="position: absolute; top: 12px; right: 12px;">
-                                        <span class="project-status"
-                                            style="background: linear-gradient(135deg, #22c55e, #16a34a); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓
-                                            Completado</span>
+                                        <span class="project-status" data-i18n="projects.laive.status"
+                                            style="background: linear-gradient(135deg, #22c55e, #16a34a); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">Completado</span>
                                     </div>
                                 </div>
                                 <div class="project-content" style="padding: 1.5rem;">
                                     <h3 class="project-title"
                                         style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
                                         Laive V2</h3>
-                                    <p class="project-description"
+                                    <p class="project-description" data-i18n="projects.laive.desc"
                                         style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75); line-height: 1.6; margin-bottom: 1.25rem;">
                                         Sistema de control de producción industrial. Cronómetro inteligente, KPIs en
                                         tiempo real y sincronización multi-dispositivo.</p>
@@ -779,8 +801,9 @@
                                             style="padding: 6px 12px; background: rgba(255, 196, 0, 0.1); border: 1px solid rgba(255, 196, 0, 0.3); border-radius: 8px; font-size: 0.75rem; color: #ffc400; font-weight: 600;">Firebase</span>
                                     </div>
                                     <a href="/laive" target="_blank" class="project-link"
-                                        style="display: inline-flex; align-items: center; gap: 8px; color: #D4A012; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: gap 0.3s ease;">Ver
-                                        Proyecto <i class="fas fa-arrow-right"></i></a>
+                                        style="display: inline-flex; align-items: center; gap: 8px; color: #D4A012; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: gap 0.3s ease;"><span
+                                            data-i18n="projects.view">Ver
+                                            Proyecto</span> <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -800,8 +823,10 @@
 
         <section class="clients" id="testimonials">
             <div class="container">
-                <div class="section-header reveal"><span class="section-tag">Testimonios</span>
-                    <h2 class="section-title">Clientes y <span>Usuarios</span></h2>
+                <div class="section-header reveal"><span class="section-tag"
+                        data-i18n="testimonials.tag">Testimonios</span>
+                    <h2 class="section-title"><span data-i18n="testimonials.title">Clientes y</span> <span
+                            data-i18n="testimonials.title.span">Usuarios</span></h2>
                 </div>
                 <div class="testimonials-grid reveal">
                     <!-- Testimonio 1 -->
@@ -837,7 +862,8 @@
                                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                             </svg>
                         </div>
-                        <p class="testimonial-text">"Fluxy transformó mis streams de TikTok. Mis seguidores pueden pedir
+                        <p class="testimonial-text" data-i18n="testimonials.1.text">"Fluxy transformó mis streams de
+                            TikTok. Mis seguidores pueden pedir
                             música desde el chat y la experiencia es increíble. Muy recomendado!"</p>
                         <div class="client-socials">
                             <a href="#" class="client-social tiktok" title="TikTok">
@@ -962,8 +988,9 @@
 
         <section class="services">
             <div class="container">
-                <div class="section-header reveal"><span class="section-tag">Servicios</span>
-                    <h2 class="section-title">Lo que <span>Ofrezco</span></h2>
+                <div class="section-header reveal"><span class="section-tag" data-i18n="services.tag">Servicios</span>
+                    <h2 class="section-title"><span data-i18n="services.title">Lo que</span> <span
+                            data-i18n="services.title.span">Ofrezco</span></h2>
                 </div>
                 <div class="services-grid">
                     <!-- Desarrollo Web Full Stack -->
@@ -984,8 +1011,9 @@
                                     stroke-width="1.5" stroke-linecap="round" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Desarrollo Web Full Stack</h3>
-                        <p class="service-description">Sitios web y aplicaciones completas con Laravel, React, Vue.js y
+                        <h3 class="service-title" data-i18n="services.web.title">Desarrollo Web Full Stack</h3>
+                        <p class="service-description" data-i18n="services.web.desc">Sitios web y aplicaciones completas
+                            con Laravel, React, Vue.js y
                             bases de datos. Desde landing pages hasta sistemas complejos.</p>
                     </div>
 
@@ -1006,8 +1034,9 @@
                                 <circle cx="12" cy="10" r="3" stroke="url(#desktopGrad)" stroke-width="1.5" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Apps de Escritorio</h3>
-                        <p class="service-description">Aplicaciones nativas con Electron y Python. Instaladores
+                        <h3 class="service-title" data-i18n="services.desktop.title">Apps de Escritorio</h3>
+                        <p class="service-description" data-i18n="services.desktop.desc">Aplicaciones nativas con
+                            Electron y Python. Instaladores
                             profesionales, actualizaciones automáticas y rendimiento óptimo.</p>
                     </div>
 
@@ -1026,8 +1055,9 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Automatización con IA</h3>
-                        <p class="service-description">Integración de Claude API, Gemini y OpenAI. Bots inteligentes,
+                        <h3 class="service-title" data-i18n="services.ai.title">Automatización con IA</h3>
+                        <p class="service-description" data-i18n="services.ai.desc">Integración de Claude API, Gemini y
+                            OpenAI. Bots inteligentes,
                             procesamiento de datos y flujos automatizados.</p>
                     </div>
 
@@ -1045,8 +1075,9 @@
                                 <polygon points="10,8 16,12 10,16" fill="url(#streamGrad)" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Apps para Streamers</h3>
-                        <p class="service-description">Herramientas personalizadas para TikTok Live, Twitch y YouTube.
+                        <h3 class="service-title" data-i18n="services.stream.title">Apps para Streamers</h3>
+                        <p class="service-description" data-i18n="services.stream.desc">Herramientas personalizadas para
+                            TikTok Live, Twitch y YouTube.
                             Comandos de chat, música interactiva y overlays.</p>
                     </div>
 
@@ -1066,8 +1097,9 @@
                                 <circle cx="15" cy="15" r="3" stroke="url(#uiGrad)" stroke-width="1.5" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Diseño UI Premium</h3>
-                        <p class="service-description">Interfaces modernas sin Photoshop. Diseño con código, animaciones
+                        <h3 class="service-title" data-i18n="services.ui.title">Diseño UI Premium</h3>
+                        <p class="service-description" data-i18n="services.ui.desc">Interfaces modernas sin Photoshop.
+                            Diseño con código, animaciones
                             CSS y experiencias visuales de alto impacto.</p>
                     </div>
 
@@ -1102,8 +1134,8 @@
 
         <section class="nova-section" id="contact">
             <div class="container">
-                <div class="section-header reveal"><span class="section-tag">Asistente IA</span>
-                    <h2 class="section-title">Conoce a <span>CLICber</span></h2>
+                <div class="section-header reveal"><span class="section-tag" data-i18n="nova.tag">Asistente IA</span>
+                    <h2 class="section-title"><span data-i18n="nova.title">Conoce a</span> <span>CLICber</span></h2>
                 </div>
 
                 <div class="nova-container reveal">
@@ -1294,26 +1326,13 @@
         </section>
 
         <footer class="footer"
-            style="background: transparent; padding: 25px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); position: relative; margin-top: 50px;">
-            <!-- Optional: Subtle glow at the bottom -->
-            <div
-                style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; background: radial-gradient(circle at center bottom, rgba(0, 80, 255, 0.1), transparent 70%); pointer-events: none;">
-            </div>
-
-            <div class="container" style="text-align: center; position: relative; z-index: 1;">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                    <!-- Simple clean copyright -->
-                    <p style="color: #64748b; font-size: 0.85rem; margin: 0;">
-                        &copy; 2026 Portafolio Web &bull; <span style="color: #94a3b8;">Elmer</span>
-                    </p>
-
-                    <!-- Credit with gradient name -->
-                    <div style="font-size: 0.8rem; color: #475569;">
-                        Creado por <span
-                            style="background: linear-gradient(90deg, #00AAFF, #FF3333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600;">Rafael
-                            Elmer Huaynate Trinidad</span>
-                    </div>
-                </div>
+            style="padding: 25px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 40px; position: relative; z-index: 10;">
+            <div class="container" style="display: flex; justify-content: center; align-items: center;">
+                <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin: 0;">
+                    © 2026 <span
+                        style="background: linear-gradient(90deg, #0050FF, #FF3333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">Rafael
+                        Elmer</span>
+                </p>
             </div>
         </footer>
     </div>
@@ -1321,6 +1340,119 @@
     <script defer src="{{ asset('js/app.js') }}"></script>
     <script defer src="{{ asset('js/globe.js') }}"></script>
     <script defer src="{{ asset('js/techPhysics.js') }}"></script>
+    <script src="{{ asset('js/i18n.js') }}"></script>
+
+    <!-- Modal CV -->
+    <div id="cvModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center;">
+        <div
+            style="background: linear-gradient(145deg, rgba(15, 15, 30, 0.98), rgba(8, 8, 20, 0.98)); border: 1px solid rgba(0, 80, 255, 0.3); border-radius: 20px; padding: 2rem; max-width: 400px; width: 90%; position: relative; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 80, 255, 0.1);">
+            <!-- Botón cerrar -->
+            <button onclick="closeCVModal()"
+                style="position: absolute; top: 15px; right: 15px; background: none; border: none; cursor: pointer; padding: 5px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)"
+                    stroke-width="2">
+                    <path d="M18 6L6 18M6 6L18 18" />
+                </svg>
+            </button>
+
+            <!-- Título -->
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom: 0.5rem;">
+                    <path
+                        d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                        stroke="url(#modalCvGrad)" stroke-width="2" />
+                    <path d="M14 2V8H20" stroke="url(#modalCvGrad)" stroke-width="2" />
+                    <defs>
+                        <linearGradient id="modalCvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0050FF" />
+                            <stop offset="100%" stop-color="#00AAFF" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h3 style="color: #fff; font-size: 1.25rem; font-weight: 600; margin: 0;">Selecciona el idioma</h3>
+            </div>
+
+            <!-- Opciones -->
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <!-- Español -->
+                <a href="{{ asset('downloads/cv-espanol.pdf') }}" download
+                    style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s ease;"
+                    onmouseover="this.style.background='rgba(0, 80, 255, 0.1)'; this.style.borderColor='rgba(0, 80, 255, 0.4)';"
+                    onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='rgba(255, 255, 255, 0.1)';">
+                    <!-- Bandera España SVG -->
+                    <svg width="32" height="24" viewBox="0 0 32 24"
+                        style="border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                        <rect width="32" height="24" fill="#AA151B" />
+                        <rect y="6" width="32" height="12" fill="#F1BF00" />
+                    </svg>
+                    <div>
+                        <span style="color: #fff; font-weight: 600; font-size: 1rem; display: block;">Español</span>
+                        <span style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">Currículum en español</span>
+                    </div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)"
+                        stroke-width="2" style="margin-left: auto;">
+                        <path d="M12 5V19M12 19L5 12M12 19L19 12" />
+                    </svg>
+                </a>
+
+                <!-- Inglés -->
+                <a href="{{ asset('downloads/cv-ingles.pdf') }}" download
+                    style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s ease;"
+                    onmouseover="this.style.background='rgba(0, 80, 255, 0.1)'; this.style.borderColor='rgba(0, 80, 255, 0.4)';"
+                    onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='rgba(255, 255, 255, 0.1)';">
+                    <!-- Bandera UK SVG -->
+                    <svg width="32" height="24" viewBox="0 0 32 24"
+                        style="border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                        <rect width="32" height="24" fill="#012169" />
+                        <path d="M0 0L32 24M32 0L0 24" stroke="#fff" stroke-width="4" />
+                        <path d="M0 0L32 24M32 0L0 24" stroke="#C8102E" stroke-width="2" />
+                        <path d="M16 0V24M0 12H32" stroke="#fff" stroke-width="6" />
+                        <path d="M16 0V24M0 12H32" stroke="#C8102E" stroke-width="4" />
+                    </svg>
+                    <div>
+                        <span style="color: #fff; font-weight: 600; font-size: 1rem; display: block;">English</span>
+                        <span style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">Resume in English</span>
+                    </div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)"
+                        stroke-width="2" style="margin-left: auto;">
+                        <path d="M12 5V19M12 19L5 12M12 19L19 12" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCVModal() {
+            document.getElementById('cvModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCVModal() {
+            document.getElementById('cvModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar al hacer clic fuera
+        document.getElementById('cvModal').addEventListener('click', function (e) {
+            if (e.target === this) closeCVModal();
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeCVModal();
+        });
+
+        // Contador dinámico de proyectos
+        document.addEventListener('DOMContentLoaded', function () {
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectCounter = document.getElementById('projectCount');
+            if (projectCounter && projectCards.length > 0) {
+                projectCounter.setAttribute('data-target', projectCards.length);
+            }
+        });
+    </script>
 </body>
 
 </html>

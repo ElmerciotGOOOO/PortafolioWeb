@@ -29,7 +29,7 @@ const bgEl = document.getElementById('planetsBg');
 
 // Todas las apps disponibles
 const allLogos = [
-    { url: 'img/ddsadasdsa.png', border: '#ff8844' },    // HTML
+    { url: 'img/html.webp', border: '#ff8844' },    // HTML
     { url: 'img/css.webp', border: '#379ad6' },           // CSS
     { url: 'img/js.webp', border: '#fccd00' },            // JS
     { url: 'img/python.webp', border: '#3776AB' },        // Python
@@ -128,7 +128,7 @@ const criticalImages = [
     'img/js.webp',
     'img/python.webp',
     'img/visualcode.webp',
-    'img/ddsadasdsa.png'
+    'img/html.webp'
 ];
 
 // Código animado en ambos lados
