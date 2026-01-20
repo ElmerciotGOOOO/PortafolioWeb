@@ -4,33 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAIVE V2 | Enterprise Production Control</title>
+    <title>LAIVE V2 | Sistema de Control de Producción Industrial</title>
+    <meta name="description" content="Sistema avanzado de control y monitoreo de producción industrial en tiempo real.">
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            /* Enterprise Palette */
-            --bg-page: #FAFAF9;
-            /* Stone 50 */
-            --bg-card: #FFFFFF;
-            --text-primary: #1C1917;
-            /* Stone 900 */
-            --text-secondary: #57534E;
-            /* Stone 600 */
-            --accent-gold: #D97706;
-            /* Amber 600 */
-            --accent-gold-light: #FEF3C7;
-            /* Amber 100 */
-            --border-subtle: #E7E5E4;
-            /* Stone 200 */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            /* Paleta Laive - Yogurt Cremoso */
+            --bg-cream: #FFFDF7;
+            --bg-white: #FFFFFF;
+            --bg-yellow-soft: #FEF9E7;
+            --bg-yellow-accent: #FFF8DC;
+
+            --primary: #D4A012;
+            --primary-dark: #B8860B;
+            --primary-light: #F5DEB3;
+
+            --text-dark: #2D2A26;
+            --text-medium: #5C5750;
+            --text-light: #8C877D;
+
+            --border: #EDE8DC;
+            --border-light: #F5F2EB;
+
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -39,242 +43,568 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-primary);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* --- UTILITIES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           CONTAINER
+        ============================================ */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        .grid-bento {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-            padding: 40px 0;
+        /* ============================================
+           NAVIGATION
+        ============================================ */
+        .nav {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .nav-content {
             display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            box-shadow: var(--shadow-lg);
-            border-color: #d6d3d1;
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1,
-        h2,
-        h3 {
-            letter-spacing: -0.02em;
-        }
-
-        .badge {
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
-        .badge-gold {
-            background: var(--accent-gold-light);
-            color: var(--accent-gold);
-            border: 1px solid rgba(217, 119, 6, 0.2);
+        .nav-logo {
+            display: flex;
+            align-items: center;
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 100px 0 60px;
-            text-align: center;
+        .nav-logo img {
+            height: 44px;
+            width: auto;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            background: linear-gradient(to bottom, #1C1917, #44403C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        .btn-primary {
+        .nav-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #1C1917;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
             color: white;
             padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 600;
+            border-radius: 10px;
             text-decoration: none;
-            transition: all 0.2s;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(212, 160, 18, 0.25);
         }
 
-        .btn-primary:hover {
-            background: #000;
+        .hero-btn:hover {
+            background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 160, 18, 0.35);
         }
 
-        /* --- WINDOW FRAME COMPONENT --- */
-        .window-frame {
-            background: #1e1e1e;
-            /* Dark frame for contrast */
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-frame {
+            background: #1a1a1a;
             border-radius: 12px;
-            padding: 10px;
-            box-shadow: var(--shadow-xl);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            box-shadow: var(--shadow-lg);
         }
 
-        .window-header {
+        .hero-frame-header {
             display: flex;
             gap: 6px;
-            margin-bottom: 10px;
-            padding-left: 4px;
+            padding: 8px 12px;
         }
 
-        .dot {
+        .frame-dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
         }
 
-        .dot-red {
-            background: #FF5F56;
+        .frame-dot.red {
+            background: #ff5f56;
         }
 
-        .dot-yellow {
-            background: #FFBD2E;
+        .frame-dot.yellow {
+            background: #ffbd2e;
         }
 
-        .dot-green {
-            background: #27C93F;
+        .frame-dot.green {
+            background: #27c93f;
         }
 
-        .window-content {
-            background: white;
-            border-radius: 4px;
-            overflow: hidden;
-            flex-grow: 1;
-            position: relative;
-        }
-
-        .window-content img {
+        .hero-frame img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Ensure full image is visible */
+            border-radius: 6px;
             display: block;
         }
 
-        /* Specific tweaks for images that shouldn't be constrained */
-        .img-cover {
-            object-fit: cover !important;
+        /* ============================================
+           FEATURES SECTION
+        ============================================ */
+        .features {
+            padding: 80px 0;
+            background: var(--bg-white);
         }
 
-        /* --- BENTO GRID AREAS --- */
-        /* Span utilities */
-        .col-span-12 {
-            grid-column: span 12;
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        .col-span-8 {
-            grid-column: span 8;
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
         }
 
-        .col-span-6 {
-            grid-column: span 6;
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .col-span-4 {
-            grid-column: span 4;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        @media (max-width: 900px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .col-span-8,
-            .col-span-6,
-            .col-span-4 {
-                grid-column: span 12 !important;
-            }
-        }
-
-        /* --- SPECIFIC CARD STYLES --- */
-        .card-padded {
+        .feature-card {
+            background: var(--bg-cream);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             padding: 32px;
+            transition: all 0.2s ease;
         }
 
-        .card-header {
+        .feature-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-yellow-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.25rem;
         }
 
-        .card-title {
-            font-size: 1.5rem;
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SCREENSHOTS SECTION
+        ============================================ */
+        .screenshots {
+            padding: 80px 0;
+            background: var(--bg-yellow-soft);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .screenshot-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .screenshot-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .screenshot-card.full-width {
+            grid-column: span 2;
+        }
+
+        .screenshot-content {
+            padding: 28px;
+        }
+
+        .screenshot-badge {
+            display: inline-block;
+            background: var(--bg-yellow-accent);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+        }
+
+        .screenshot-content h3 {
+            font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 8px;
+            color: var(--text-dark);
         }
 
-        .card-desc {
-            color: var(--text-secondary);
+        .screenshot-content p {
             font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
         }
 
-        /* --- ANIMATIONS --- */
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
+        .screenshot-image {
+            background: #f5f5f5;
+            padding: 16px;
         }
 
-        .delay-1 {
-            animation-delay: 0.1s;
+        .screenshot-frame {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 6px;
         }
 
-        .delay-2 {
-            animation-delay: 0.2s;
+        .screenshot-frame-header {
+            display: flex;
+            gap: 5px;
+            padding: 6px 10px;
         }
 
-        .delay-3 {
-            animation-delay: 0.3s;
+        .screenshot-frame img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        /* Full width card layout */
+        .screenshot-card.full-width .screenshot-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            align-items: center;
+        }
+
+        .screenshot-card.full-width .screenshot-image {
+            border-radius: 0 16px 16px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: var(--text-medium);
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           HOW IT WORKS
+        ============================================ */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           TECH STACK
+        ============================================ */
+        .tech-stack {
+            padding: 60px 0;
+            background: var(--bg-cream);
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-label {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .tech-item i {
+            font-size: 1.4rem;
+        }
+
+        /* ============================================
+           CTA SECTION
+        ============================================ */
+        .cta {
+            padding: 80px 0;
+            background: var(--bg-white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .cta p {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            padding: 40px 0;
+            background: var(--bg-cream);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .footer strong {
+            color: var(--text-medium);
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-card.full-width {
+                grid-column: span 1;
+            }
+
+            .screenshot-card.full-width .screenshot-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-card.full-width .screenshot-image {
+                border-radius: 0 0 16px 16px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .cta h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .tech-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tech-item {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -282,168 +612,281 @@
 
 <body>
 
-    <div class="container">
-
-        <!-- HERO -->
-        <section class="hero fade-in">
-            <span class="badge badge-gold">Sistema de Control Industrial v2.0</span>
-            <h1>Control Total.<br>Sin Complicaciones.</h1>
-            <p>Laive V2 transforma la gestión de planta eliminando el caos visual. Sincronización en tiempo real y
-                persistencia de datos.</p>
-            <div>
-                <a href="/demo-laive/index.html" target="_blank" class="btn-primary">
-                    <i class="fas fa-play"></i> Ver Demo Interactiva
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="/laive-assets/LogoLaive.png" alt="Laive Logo">
+                </div>
+                <a href="/demo-laive/index.html" target="_blank" class="nav-btn">
+                    <i class="fas fa-play"></i> Ver Demo
                 </a>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- MAIN PRODUCTION DISPLAY (Hero Image) -->
-        <div class="grid-bento">
-            <!-- Main Hero Image -->
-            <div class="card col-span-12 fade-in delay-1"
-                style="background: transparent; border: none; box-shadow: none;">
-                <div class="window-frame">
-                    <div class="window-header">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="window-content" style="aspect-ratio: 16/9; background: #000;">
-                        <img src="/laive-assets/inicio.png" alt="Pantalla Principal Laive">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Control de Producción <span>Simple y Eficiente</span></h1>
+                    <p>
+                        Sistema de monitoreo industrial en tiempo real. Gestiona tiempos,
+                        analiza rendimiento y optimiza tu línea de producción desde una
+                        interfaz clara y profesional.
+                    </p>
+                    <a href="/demo-laive/index.html" target="_blank" class="hero-btn">
+                        <i class="fas fa-play"></i> Ver Demo Interactiva
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-frame">
+                        <div class="hero-frame-header">
+                            <div class="frame-dot red"></div>
+                            <div class="frame-dot yellow"></div>
+                            <div class="frame-dot green"></div>
+                        </div>
+                        <img src="/laive-assets/inicio.png" alt="Pantalla Principal">
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- BENTO FEATURES GRID -->
-        <div class="grid-bento">
-
-            <!-- Real Time Editing -->
-            <div class="card col-span-8 card-padded fade-in delay-2">
-                <div class="card-header">
-                    <div class="badge badge-gold" style="margin-bottom: 12px;">Core Feature</div>
-                    <h3 class="card-title">Edición en Tiempo Real</h3>
-                    <p class="card-desc">Modifica tiempos y objetivos directamente. El sistema recalcula proyecciones al
-                        instante para todos los clientes conectados.</p>
-                </div>
-                <div class="window-frame" style="height: 400px; box-shadow: var(--shadow-md);">
-                    <div class="window-header">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="window-content" style="background: #f8fafc;">
-                        <img src="/laive-assets/edicion en tiempo real.png" alt="Edición Real Time">
-                    </div>
-                </div>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Características Principales</h2>
+                <p>Herramientas diseñadas para optimizar cada aspecto de tu producción industrial.</p>
             </div>
 
-            <!-- Stats/KPI Small Card -->
-            <div class="card col-span-4 card-padded fade-in delay-2"
-                style="background: #fefce8; border-color: #fcd34d;">
-                <h3 class="card-title" style="color: #b45309;">Analítica KPI</h3>
-                <p class="card-desc" style="color: #d97706; margin-bottom: 24px;">Visualización de datos críticos.</p>
-                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
-                    <img src="/laive-assets/estadisticas.png"
-                        style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-md); border: 4px solid white;">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Cronómetro Inteligente</h3>
+                    <p>Control preciso del tiempo de producción con alertas automáticas. Medición de Fase 1 y Fase 2.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Sincronización en Tiempo Real</h3>
+                    <p>Los cambios se reflejan instantáneamente en todos los dispositivos conectados a la red.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Estadísticas y KPIs</h3>
+                    <p>Visualización de métricas críticas con análisis de rendimiento y calificación automática.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>Gestión Multi-Rol</h3>
+                    <p>Control para Maquinistas, Ayudantes y Paletizadores con tiempos configurables.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-history"></i></div>
+                    <h3>Historial Completo</h3>
+                    <p>Registro detallado de cada sesión con exportación de reportes automáticos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Acceso Seguro</h3>
+                    <p>Autenticación con Firebase, licencias por tiempo y bloqueo por dispositivo.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Monitoring Panel -->
-            <div class="card col-span-6 card-padded fade-in delay-3">
-                <div class="window-frame" style="height: 300px; margin-bottom: 20px;">
-                    <div class="window-header">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="window-content">
-                        <img src="/laive-assets/panel.png" alt="Panel de Control">
-                    </div>
-                </div>
-                <h3 class="card-title">Monitoreo Integral</h3>
-                <p class="card-desc">Control centralizado para Maquinistas, Ayudantes y Paletizadores.</p>
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interfaz Profesional</h2>
+                <p>Diseño optimizado para pantallas industriales con modo oscuro que reduce fatiga visual.</p>
             </div>
 
-            <!-- Security/Login -->
-            <div class="card col-span-6 card-padded fade-in delay-3">
-                <div class="window-frame" style="height: 300px; margin-bottom: 20px;">
-                    <div class="window-header">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
+            <div class="screenshots-grid">
+                <!-- Real-time Editing -->
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <span class="screenshot-badge">Edición</span>
+                        <h3>Modificación en Tiempo Real</h3>
+                        <p>Ajusta tiempos y objetivos directamente. El sistema recalcula proyecciones al instante.</p>
                     </div>
-                    <div class="window-content">
-                        <img src="/laive-assets/login.png" alt="Login Screen">
-                    </div>
-                </div>
-                <h3 class="card-title">Acceso Seguro</h3>
-                <p class="card-desc">Autenticación robusta con Firebase y roles de usuario definidos.</p>
-            </div>
-
-            <!-- History Full Width -->
-            <div class="card col-span-12 card-padded fade-in delay-3">
-                <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: center;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <h3 class="card-title">Historial Detallado</h3>
-                        <p class="card-desc" style="margin-bottom: 20px;">
-                            Cada sesión de producción queda registrada con precisión de milisegundos.
-                            El sistema genera reportes automáticos de eficiencia.
-                        </p>
-                        <ul style="list-style: none; color: var(--text-secondary);">
-                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--accent-gold);"></i> Tiempos Fase 1 y
-                                2
-                            </li>
-                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--accent-gold);"></i> Calificación
-                                Automática
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--accent-gold);"></i> Exportable
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="flex: 2; min-width: 300px;">
-                        <div class="window-frame">
-                            <div class="window-header">
-                                <div class="dot dot-red"></div>
-                                <div class="dot dot-yellow"></div>
-                                <div class="dot dot-green"></div>
+                    <div class="screenshot-image">
+                        <div class="screenshot-frame">
+                            <div class="screenshot-frame-header">
+                                <div class="frame-dot red"></div>
+                                <div class="frame-dot yellow"></div>
+                                <div class="frame-dot green"></div>
                             </div>
-                            <div class="window-content" style="max-height: 400px;">
-                                <img src="/laive-assets/historial.png" alt="Historial" class="img-cover">
+                            <img src="/laive-assets/edicion en tiempo real.png" alt="Edición en Tiempo Real">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <span class="screenshot-badge">Analytics</span>
+                        <h3>Analítica de Producción</h3>
+                        <p>Datos críticos y métricas de rendimiento para tomar decisiones informadas.</p>
+                    </div>
+                    <div class="screenshot-image">
+                        <div class="screenshot-frame">
+                            <div class="screenshot-frame-header">
+                                <div class="frame-dot red"></div>
+                                <div class="frame-dot yellow"></div>
+                                <div class="frame-dot green"></div>
+                            </div>
+                            <img src="/laive-assets/estadisticas.png" alt="Estadísticas">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <span class="screenshot-badge">Monitoreo</span>
+                        <h3>Panel de Control</h3>
+                        <p>Vista centralizada de todos los operadores con tiempos individuales.</p>
+                    </div>
+                    <div class="screenshot-image">
+                        <div class="screenshot-frame">
+                            <div class="screenshot-frame-header">
+                                <div class="frame-dot red"></div>
+                                <div class="frame-dot yellow"></div>
+                                <div class="frame-dot green"></div>
+                            </div>
+                            <img src="/laive-assets/panel.png" alt="Panel de Control">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login -->
+                <div class="screenshot-card">
+                    <div class="screenshot-content">
+                        <span class="screenshot-badge">Seguridad</span>
+                        <h3>Acceso Protegido</h3>
+                        <p>Sistema de autenticación con control de licencias y verificación de dispositivo.</p>
+                    </div>
+                    <div class="screenshot-image">
+                        <div class="screenshot-frame">
+                            <div class="screenshot-frame-header">
+                                <div class="frame-dot red"></div>
+                                <div class="frame-dot yellow"></div>
+                                <div class="frame-dot green"></div>
+                            </div>
+                            <img src="/laive-assets/login.png" alt="Login">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History - Full Width -->
+                <div class="screenshot-card full-width">
+                    <div class="screenshot-inner">
+                        <div class="screenshot-content">
+                            <span class="screenshot-badge">Registros</span>
+                            <h3>Historial Detallado</h3>
+                            <p>Registro de cada sesión de producción con precisión de milisegundos.</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> Tiempos Fase 1 y Fase 2</li>
+                                <li><i class="fas fa-check"></i> Calificación Automática</li>
+                                <li><i class="fas fa-check"></i> Exportable a Excel/CSV</li>
+                                <li><i class="fas fa-check"></i> Filtros por fecha y modo</li>
+                            </ul>
+                        </div>
+                        <div class="screenshot-image">
+                            <div class="screenshot-frame">
+                                <div class="screenshot-frame-header">
+                                    <div class="frame-dot red"></div>
+                                    <div class="frame-dot yellow"></div>
+                                    <div class="frame-dot green"></div>
+                                </div>
+                                <img src="/laive-assets/historial.png" alt="Historial">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+    </section>
 
-        <!-- TECH STACK FOOTER -->
-        <div style="text-align: center; padding: 60px 0; border-top: 1px solid var(--border-subtle); margin-top: 40px;">
-            <p
-                style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 24px;">
-                Powered By</p>
-            <div
-                style="display: flex; justify-content: center; gap: 30px; font-size: 1.5rem; color: var(--text-primary); flex-wrap: wrap;">
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fab fa-react"
-                        style="color: #61DAFB;"></i> React</span>
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-atom"
-                        style="color: #38bdf8;"></i> Electron</span>
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-bolt"
-                        style="color: #eab308;"></i> Vite</span>
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-fire"
-                        style="color: #f59e0b;"></i> Firebase</span>
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Cómo Funciona?</h2>
+                <p>Configuración simple, resultados inmediatos.</p>
             </div>
 
-            <p style="margin-top: 60px; color: var(--text-secondary); font-size: 0.9rem;">
-                &copy; 2026 Developed by <strong>Elmer Huaynate Trinidad</strong>.
-            </p>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Instalación</h3>
+                    <p>Descarga e instala en tus equipos Windows. Optimizado para pantallas TV.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configuración</h3>
+                    <p>Define tiempos objetivo, roles y parámetros según tu línea de producción.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Producción</h3>
+                    <p>Inicia el cronómetro y el sistema monitorea, alerta y registra automáticamente.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <p class="tech-label">Tecnologías Utilizadas</p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-react" style="color: #61DAFB;"></i>
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-atom" style="color: #47848f;"></i>
+                    <span>Electron</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-bolt" style="color: #646CFF;"></i>
+                    <span>Vite</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-fire" style="color: #FFCA28;"></i>
+                    <span>Firebase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para Optimizar tu Producción?</h2>
+            <p>Prueba la demo interactiva y descubre cómo puede transformar tu planta industrial.</p>
+            <a href="/demo-laive/index.html" target="_blank" class="hero-btn">
+                <i class="fas fa-rocket"></i> Probar Demo
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/laive-assets/LogoLaive.png" alt="Laive Logo">
+            </div>
+            <p>© 2026 Desarrollado por <strong>Elmer Huaynate Trinidad</strong></p>
+        </div>
+    </footer>
 
 </body>
 

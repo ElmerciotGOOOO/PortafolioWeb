@@ -704,86 +704,83 @@
                     </button>
 
                     <div class="projects-slider">
-                        <div class="projects-track">
-                            <div class="project-card reveal">
-                                <div class="project-image">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <div class="project-overlay">
-                                        <span class="project-status">Completado</span>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">E-Commerce</h3>
-                                    <p class="project-description">Plataforma de ventas online con carrito, pagos y
-                                        panel admin.</p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Laravel</span>
-                                        <span class="tech-tag">Vue.js</span>
-                                        <span class="tech-tag">MySQL</span>
-                                    </div>
-                                    <a href="#" class="project-link">Ver Proyecto <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="project-card reveal">
-                                <div class="project-image">
-                                    <i class="fas fa-chart-line"></i>
-                                    <div class="project-overlay">
-                                        <span class="project-status">En Desarrollo</span>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Dashboard Analytics</h3>
-                                    <p class="project-description">Panel de control con datos en tiempo real y gráficos
-                                        interactivos.</p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">Node.js</span>
-                                        <span class="tech-tag">MongoDB</span>
-                                    </div>
-                                    <a href="#" class="project-link">Ver Proyecto <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="project-card reveal">
-                                <div class="project-image">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    <div class="project-overlay">
-                                        <span class="project-status">Completado</span>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">App de Gestión</h3>
-                                    <p class="project-description">Aplicación móvil para gestión de inventarios y
-                                        ventas.</p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Django</span>
-                                        <span class="tech-tag">SQLite</span>
-                                    </div>
-                                    <a href="#" class="project-link">Ver Proyecto <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="project-card reveal">
+                        <div class="projects-track" style="display: flex; gap: 2rem; justify-content: center;">
+                            <!-- Fluxy Card -->
+                            <div class="project-card reveal"
+                                style="flex: 0 0 380px; max-width: 400px; background: linear-gradient(145deg, rgba(15, 15, 30, 0.95), rgba(10, 10, 25, 0.98)); border: 1px solid rgba(255, 51, 102, 0.3); border-radius: 20px; overflow: hidden;">
                                 <div class="project-image"
-                                    style="background: linear-gradient(135deg, rgba(255, 0, 51, 0.2), rgba(0, 85, 255, 0.2));">
-                                    <i class="fab fa-tiktok"></i>
-                                    <div class="project-overlay">
-                                        <span class="project-status">Nuevo</span>
+                                    style="height: 200px; background: linear-gradient(135deg, #1a0a1a 0%, #0a0a15 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+                                    <i class="fab fa-tiktok"
+                                        style="font-size: 4rem; background: linear-gradient(135deg, #25F4EE, #FE2C55, #000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                                    <div class="project-overlay" style="position: absolute; top: 12px; right: 12px;">
+                                        <span class="project-status"
+                                            style="background: linear-gradient(135deg, #22c55e, #16a34a); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓
+                                            Completado</span>
                                     </div>
                                 </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Fluxy - Music Request</h3>
-                                    <p class="project-description">App de escritorio para streamers de TikTok. Tu
-                                        audiencia pide música desde el chat.</p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Electron</span>
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">Firebase</span>
+                                <div class="project-content" style="padding: 1.5rem;">
+                                    <h3 class="project-title"
+                                        style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
+                                        Fluxy - Music Request</h3>
+                                    <p class="project-description"
+                                        style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75); line-height: 1.6; margin-bottom: 1.25rem;">
+                                        App de escritorio para streamers de TikTok. Tu audiencia pide música desde el
+                                        chat en tiempo real.</p>
+                                    <div class="project-tech"
+                                        style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;">
+                                        <span class="tech-tag"
+                                            style="padding: 6px 12px; background: rgba(255, 51, 102, 0.15); border: 1px solid rgba(255, 51, 102, 0.3); border-radius: 8px; font-size: 0.75rem; color: #ff6b8a; font-weight: 600;">Electron</span>
+                                        <span class="tech-tag"
+                                            style="padding: 6px 12px; background: rgba(97, 218, 251, 0.1); border: 1px solid rgba(97, 218, 251, 0.3); border-radius: 8px; font-size: 0.75rem; color: #61dafb; font-weight: 600;">React</span>
+                                        <span class="tech-tag"
+                                            style="padding: 6px 12px; background: rgba(255, 196, 0, 0.1); border: 1px solid rgba(255, 196, 0, 0.3); border-radius: 8px; font-size: 0.75rem; color: #ffc400; font-weight: 600;">Firebase</span>
                                     </div>
-                                    <a href="/fluxy" target="_blank" class="project-link">Ver Proyecto <i
-                                            class="fas fa-arrow-right"></i></a>
+                                    <a href="/fluxy" target="_blank" class="project-link"
+                                        style="display: inline-flex; align-items: center; gap: 8px; color: #FF3366; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: gap 0.3s ease;">Ver
+                                        Proyecto <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+
+                            <!-- Laive V2 Card -->
+                            <div class="project-card reveal"
+                                style="flex: 0 0 380px; max-width: 400px; background: linear-gradient(145deg, rgba(20, 18, 12, 0.98), rgba(15, 13, 8, 0.98)); border: 1px solid rgba(212, 160, 18, 0.4); border-radius: 20px; overflow: hidden;">
+                                <div class="project-image"
+                                    style="height: 200px; background: linear-gradient(135deg, #1a1508 0%, #0f0e08 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+                                    <!-- Logo grande centrado -->
+                                    <img src="/laive-assets/LogoLaive.png" alt="Laive Logo"
+                                        style="width: 100px; height: 100px; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(212, 160, 18, 0.4));">
+                                    <!-- Badges -->
+                                    <div style="position: absolute; top: 12px; left: 12px;">
+                                        <span
+                                            style="background: linear-gradient(135deg, #D4A012, #F59E0B); padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(212, 160, 18, 0.4);">📁
+                                            Personal</span>
+                                    </div>
+                                    <div class="project-overlay" style="position: absolute; top: 12px; right: 12px;">
+                                        <span class="project-status"
+                                            style="background: linear-gradient(135deg, #22c55e, #16a34a); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">✓
+                                            Completado</span>
+                                    </div>
+                                </div>
+                                <div class="project-content" style="padding: 1.5rem;">
+                                    <h3 class="project-title"
+                                        style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
+                                        Laive V2</h3>
+                                    <p class="project-description"
+                                        style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75); line-height: 1.6; margin-bottom: 1.25rem;">
+                                        Sistema de control de producción industrial. Cronómetro inteligente, KPIs en
+                                        tiempo real y sincronización multi-dispositivo.</p>
+                                    <div class="project-tech"
+                                        style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;">
+                                        <span class="tech-tag"
+                                            style="padding: 6px 12px; background: rgba(212, 160, 18, 0.15); border: 1px solid rgba(212, 160, 18, 0.3); border-radius: 8px; font-size: 0.75rem; color: #D4A012; font-weight: 600;">Electron</span>
+                                        <span class="tech-tag"
+                                            style="padding: 6px 12px; background: rgba(97, 218, 251, 0.1); border: 1px solid rgba(97, 218, 251, 0.3); border-radius: 8px; font-size: 0.75rem; color: #61dafb; font-weight: 600;">React</span>
+                                        <span class="tech-tag"
+                                            style="padding: 6px 12px; background: rgba(255, 196, 0, 0.1); border: 1px solid rgba(255, 196, 0, 0.3); border-radius: 8px; font-size: 0.75rem; color: #ffc400; font-weight: 600;">Firebase</span>
+                                    </div>
+                                    <a href="/laive" target="_blank" class="project-link"
+                                        style="display: inline-flex; align-items: center; gap: 8px; color: #D4A012; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: gap 0.3s ease;">Ver
+                                        Proyecto <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -797,13 +794,7 @@
                     </button>
                 </div>
 
-                <!-- Indicadores -->
-                <div class="slider-dots">
-                    <span class="dot active" onclick="goToSlide(0)"></span>
-                    <span class="dot" onclick="goToSlide(1)"></span>
-                    <span class="dot" onclick="goToSlide(2)"></span>
-                    <span class="dot" onclick="goToSlide(3)"></span>
-                </div>
+                <!-- Las dos tarjetas ya están visibles, no necesita slider -->
             </div>
         </section>
 
