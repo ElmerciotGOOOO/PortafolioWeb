@@ -56,7 +56,7 @@
                 bots inteligentes, recompensas por donaciones y mucho más.
             </p>
             <div class="fluxy-hero-buttons">
-                <a href="{{ asset('downloads/FLUXYAPP.rar') }}" download class="fluxy-btn fluxy-btn-primary">
+                <a href="{{ asset('downloads/Fluxy-Setup-1.0.4.exe') }}" download class="fluxy-btn fluxy-btn-primary">
                     <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
                         <path d="M12 3V16M12 16L7 11M12 16L17 11" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -439,8 +439,8 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>Descarga el Archivo</h3>
-                        <p>Presiona el botón <strong>"Descargar Gratis"</strong> y obtendrás un archivo
-                            <code>FLUXYAPP.rar</code>.
+                        <p>Presiona el botón <strong>"Descargar Gratis"</strong> y obtendrás el instalador
+                            <code>Fluxy-Setup-1.0.4.exe</code>.
                         </p>
                         <div class="step-image">
                             <img src="{{ asset('img/paso1.webp') }}" alt="Paso 1 - Descarga el archivo" loading="lazy">
@@ -452,30 +452,8 @@
                 <div class="fluxy-install-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Extrae el Archivo</h3>
-                        <p>Haz clic derecho en el archivo descargado y selecciona <strong>"Extraer aquí"</strong>. Te
-                            aparecerá una carpeta.</p>
-                        <div class="step-warning">
-                            <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                                <path
-                                    d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            </svg>
-                            <span><strong>IMPORTANTE:</strong> NO ejecutes el archivo desde WinRAR. Primero extrae y
-                                luego abre la carpeta.</span>
-                        </div>
-                        <div class="step-image">
-                            <img src="{{ asset('img/paso2.webp') }}" alt="Paso 2 - Extrae el archivo" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 3 -->
-                <div class="fluxy-install-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
                         <h3>Ejecuta como Administrador</h3>
-                        <p>Abre la carpeta extraída y haz clic derecho en <code>Fluxy Setup 1.0.0.exe</code>, luego
+                        <p>Haz clic derecho en el archivo descargado <code>Fluxy-Setup-1.0.4.exe</code>, luego
                             selecciona <strong>"Ejecutar como administrador"</strong>.</p>
                         <div class="step-warning warning-info">
                             <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -488,7 +466,21 @@
                                 dólares. La app es completamente segura.</span>
                         </div>
                         <div class="step-image">
-                            <img src="{{ asset('img/paso3.png') }}" alt="Paso 3 - Ejecuta como administrador"
+                            <img src="{{ asset('img/paso3.png') }}" alt="Paso 2 - Ejecuta como administrador"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="fluxy-install-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Windows Protegió su PC</h3>
+                        <p>Te aparecerá un mensaje de Windows SmartScreen. Haz clic en <strong>"Más
+                                información"</strong> y luego en <strong>"Ejecutar de todos modos"</strong>.</p>
+                        <div class="step-image">
+                            <img src="{{ asset('img/paso4.png') }}" alt="Paso 3 - Windows protegió su PC"
                                 loading="lazy">
                         </div>
                     </div>
@@ -498,12 +490,11 @@
                 <div class="fluxy-install-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Windows Protegió su PC</h3>
-                        <p>Te aparecerá un mensaje de Windows SmartScreen. Haz clic en <strong>"Más
-                                información"</strong> y luego en <strong>"Ejecutar de todos modos"</strong>.</p>
+                        <h3>Acepta la Licencia</h3>
+                        <p>Te aparecerá la licencia de Fluxy. Dale <strong>"Aceptar"</strong>, elige la carpeta donde
+                            quieres instalar y la app se instalará automáticamente.</p>
                         <div class="step-image">
-                            <img src="{{ asset('img/paso4.png') }}" alt="Paso 4 - Windows protegió su PC"
-                                loading="lazy">
+                            <img src="{{ asset('img/paso5.png') }}" alt="Paso 4 - Acepta la licencia" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -512,11 +503,11 @@
                 <div class="fluxy-install-step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>Acepta la Licencia</h3>
-                        <p>Te aparecerá la licencia de Fluxy. Dale <strong>"Aceptar"</strong>, elige la carpeta donde
-                            quieres instalar y la app se instalará automáticamente.</p>
+                        <h3>Ejecuta Fluxy</h3>
+                        <p>Al finalizar la instalación, dale <strong>"Ejecutar"</strong>. Se abrirá la aplicación y
+                            deberás iniciar sesión con tu usuario y contraseña.</p>
                         <div class="step-image">
-                            <img src="{{ asset('img/paso5.png') }}" alt="Paso 5 - Acepta la licencia" loading="lazy">
+                            <img src="{{ asset('img/paso6.webp') }}" alt="Paso 5 - Ejecuta Fluxy" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -525,29 +516,16 @@
                 <div class="fluxy-install-step">
                     <div class="step-number">6</div>
                     <div class="step-content">
-                        <h3>Ejecuta Fluxy</h3>
-                        <p>Al finalizar la instalación, dale <strong>"Ejecutar"</strong>. Se abrirá la aplicación y
-                            deberás iniciar sesión con tu usuario y contraseña.</p>
-                        <div class="step-image">
-                            <img src="{{ asset('img/paso6.webp') }}" alt="Paso 6 - Ejecuta Fluxy" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 7 -->
-                <div class="fluxy-install-step">
-                    <div class="step-number">7</div>
-                    <div class="step-content">
                         <h3>Conecta tu TikTok</h3>
                         <p>Pon tu <strong>usuario de TikTok</strong> (ejemplo: @elmernew6) y ya podrás conectar con tu
                             cuenta para empezar a usar las funciones.</p>
                         <div class="step-image">
-                            <img src="{{ asset('img/paso7.jpg') }}" alt="Paso 7 - Conecta tu TikTok" loading="lazy">
+                            <img src="{{ asset('img/paso7.jpg') }}" alt="Paso 6 - Conecta tu TikTok" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <!-- Paso 8 - ¡Listo! -->
+                <!-- Paso 7 - ¡Listo! -->
                 <div class="fluxy-install-step step-success">
                     <div class="step-number">✓</div>
                     <div class="step-content">
@@ -555,7 +533,7 @@
                         <p>Ya puedes ver el chat en tiempo real, cambiar comandos personalizados y configurar quiénes
                             pueden usar los comandos.</p>
                         <div class="step-image">
-                            <img src="{{ asset('img/paso8.webp') }}" alt="Paso 8 - Listo para usar" loading="lazy">
+                            <img src="{{ asset('img/paso8.webp') }}" alt="Paso 7 - Listo para usar" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -726,7 +704,7 @@
                 <a href="#install" class="modal-btn modal-btn-secondary" onclick="closeModal()">
                     Ver Pasos de Instalación
                 </a>
-                <a href="{{ asset('downloads/FLUXYAPP.rar') }}" download class="modal-btn modal-btn-primary"
+                <a href="{{ asset('downloads/Fluxy-Setup-1.0.4.exe') }}" download class="modal-btn modal-btn-primary"
                     onclick="closeModal()">
                     Descargar Ahora
                 </a>
