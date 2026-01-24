@@ -56,7 +56,8 @@
                 bots inteligentes, recompensas por donaciones y mucho más.
             </p>
             <div class="fluxy-hero-buttons">
-                <a href="{{ asset('downloads/Fluxy-Setup-1.0.4.exe') }}" download class="fluxy-btn fluxy-btn-primary">
+                <a href="https://drive.google.com/uc?export=download&id=14eTdIjBZLJw_5-v99Yk3glMViuyTDl3Z"
+                    class="fluxy-btn fluxy-btn-primary">
                     <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
                         <path d="M12 3V16M12 16L7 11M12 16L17 11" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -704,8 +705,8 @@
                 <a href="#install" class="modal-btn modal-btn-secondary" onclick="closeModal()">
                     Ver Pasos de Instalación
                 </a>
-                <a href="{{ asset('downloads/Fluxy-Setup-1.0.4.exe') }}" download class="modal-btn modal-btn-primary"
-                    onclick="closeModal()">
+                <a href="https://drive.google.com/uc?export=download&id=14eTdIjBZLJw_5-v99Yk3glMViuyTDl3Z"
+                    class="modal-btn modal-btn-primary" onclick="closeModal()">
                     Descargar Ahora
                 </a>
             </div>
