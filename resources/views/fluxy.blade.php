@@ -441,7 +441,7 @@
                     <div class="step-content">
                         <h3>Descarga el Archivo</h3>
                         <p>Presiona el botón <strong>"Descargar Gratis"</strong> y obtendrás el instalador
-                            <code>Fluxy-Setup-1.0.4.exe</code>.
+                            <code>Fluxy-Setup-1.0.10.exe</code>.
                         </p>
                         <div class="step-image">
                             <img src="{{ asset('img/paso1.webp') }}" alt="Paso 1 - Descarga el archivo" loading="lazy">
@@ -454,7 +454,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Ejecuta como Administrador</h3>
-                        <p>Haz clic derecho en el archivo descargado <code>Fluxy-Setup-1.0.4.exe</code>, luego
+                        <p>Haz clic derecho en el archivo descargado <code>Fluxy-Setup-1.0.10.exe</code>, luego
                             selecciona <strong>"Ejecutar como administrador"</strong>.</p>
                         <div class="step-warning warning-info">
                             <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
@@ -705,7 +705,7 @@
                 <a href="#install" class="modal-btn modal-btn-secondary" onclick="closeModal()">
                     Ver Pasos de Instalación
                 </a>
-                <a href="https://drive.google.com/uc?export=download&id=14eTdIjBZLJw_5-v99Yk3glMViuyTDl3Z"
+                <a href="https://drive.google.com/uc?export=download&id=1cql5v-FyKCxWV2joXz6C9SFo1OrmeNOw"
                     class="modal-btn modal-btn-primary" onclick="closeModal()">
                     Descargar Ahora
                 </a>
