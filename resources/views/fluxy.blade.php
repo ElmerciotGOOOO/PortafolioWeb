@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Fluxy - La Plataforma Definitiva de Automatización para Streams de TikTok">
     <title>Fluxy | Automatización para TikTok Live</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,28 @@
 </head>
 
 <body class="fluxy-page dark-theme">
+    <!-- Pantalla de Carga Premium -->
+    <div class="fluxy-loading-screen" id="fluxyLoader">
+        <div class="loader-bg-grid"></div>
+        <div class="loader-glow loader-glow-1"></div>
+        <div class="loader-glow loader-glow-2"></div>
+        <div class="loader-content">
+            <div class="loader-logo-container">
+                <div class="loader-ring"></div>
+                <div class="loader-ring-2"></div>
+                <img src="{{ asset('img/LogoFluxy.webp') }}" alt="Fluxy" class="loader-logo">
+            </div>
+            <div class="loader-text">
+                <span class="loader-title">FLUXY</span>
+                <span class="loader-subtitle">Cargando experiencia...</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="loaderBar"></div>
+            </div>
+            <span class="loader-percent" id="loaderPercent">0%</span>
+        </div>
+    </div>
+
     <!-- Fondo animado -->
     <div class="fluxy-bg-grid"></div>
     <div class="fluxy-glow fluxy-glow-1"></div>
@@ -500,22 +522,9 @@
                     </div>
                 </div>
 
-                <!-- Paso 5 -->
-                <div class="fluxy-install-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Ejecuta Fluxy</h3>
-                        <p>Al finalizar la instalación, dale <strong>"Ejecutar"</strong>. Se abrirá la aplicación y
-                            deberás iniciar sesión con tu usuario y contraseña.</p>
-                        <div class="step-image">
-                            <img src="{{ asset('img/paso6.webp') }}" alt="Paso 5 - Ejecuta Fluxy" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Paso 6 -->
                 <div class="fluxy-install-step">
-                    <div class="step-number">6</div>
+                    <div class="step-number">5</div>
                     <div class="step-content">
                         <h3>Conecta tu TikTok</h3>
                         <p>Pon tu <strong>usuario de TikTok</strong> (ejemplo: @elmernew6) y ya podrás conectar con tu
@@ -640,7 +649,8 @@
                         </div>
 
                         <div class="fluxy-social-buttons">
-                            <a href="#" class="fluxy-social-btn tiktok">
+                            <a href="https://www.tiktok.com/@elmernew6?is_from_webapp=1&sender_device=pc"
+                                target="_blank" class="fluxy-social-btn tiktok">
                                 <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
                                     <path
                                         d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-7.18 9.4 6.34 6.34 0 0 0 11.14-4.13V9.41a8.16 8.16 0 0 0 4.77 1.53v-3.4a4.85 4.85 0 0 1-.5-.85z"
@@ -648,7 +658,8 @@
                                 </svg>
                                 <span>TikTok</span>
                             </a>
-                            <a href="#" class="fluxy-social-btn instagram">
+                            <a href="https://www.instagram.com/elmerciot?igsh=MWFtcWI3czgyZjc5cA==" target="_blank"
+                                class="fluxy-social-btn instagram">
                                 <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
                                     <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor"
                                         stroke-width="2" />
@@ -657,7 +668,7 @@
                                 </svg>
                                 <span>Instagram</span>
                             </a>
-                            <a href="#" class="fluxy-social-btn whatsapp">
+                            <a href="https://wa.me/51961349020" target="_blank" class="fluxy-social-btn whatsapp">
                                 <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
                                     <path
                                         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
@@ -715,7 +726,7 @@
 
     <!-- Footer simple -->
     <footer class="fluxy-footer-simple">
-        <p>© 2024 Fluxy by @elmerciot</p>
+        <p>© 2026 Fluxy by @elmerciot</p>
     </footer>
 
     <script>
@@ -766,6 +777,54 @@
         document.querySelectorAll('.fluxy-section, .fluxy-feature-card, .fluxy-coming-card').forEach(el => {
             observer.observe(el);
         });
+
+        // ========== PANTALLA DE CARGA ==========
+        (function () {
+            const loader = document.getElementById('fluxyLoader');
+            const loaderBar = document.getElementById('loaderBar');
+            const loaderPercent = document.getElementById('loaderPercent');
+
+            let progress = 0;
+            let loaded = false;
+
+            // Simular progreso mientras carga
+            function updateProgress(value) {
+                progress = Math.min(value, 100);
+                loaderBar.style.width = progress + '%';
+                loaderPercent.textContent = Math.round(progress) + '%';
+            }
+
+            // Progreso gradual
+            let interval = setInterval(() => {
+                if (progress < 90 && !loaded) {
+                    updateProgress(progress + Math.random() * 15);
+                }
+            }, 200);
+
+            // Cuando todo esté cargado
+            window.addEventListener('load', function () {
+                loaded = true;
+                clearInterval(interval);
+
+                // Completar la barra
+                let finalProgress = progress;
+                let completeInterval = setInterval(() => {
+                    finalProgress += 5;
+                    updateProgress(finalProgress);
+                    if (finalProgress >= 100) {
+                        clearInterval(completeInterval);
+                        // Ocultar loader
+                        setTimeout(() => {
+                            loader.classList.add('loader-hidden');
+                            document.body.classList.add('loaded');
+                            setTimeout(() => {
+                                loader.style.display = 'none';
+                            }, 600);
+                        }, 300);
+                    }
+                }, 30);
+            });
+        })();
     </script>
 </body>
 

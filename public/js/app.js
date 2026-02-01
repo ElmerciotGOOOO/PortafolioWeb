@@ -4,6 +4,34 @@
 // ============================================
 'use strict';
 
+// ============================================
+// SCROLL TO TOP - Siempre iniciar desde arriba
+// ============================================
+// Desactivar restauración automática del navegador
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Scroll to top inmediato
+window.scrollTo(0, 0);
+
+// Scroll to top cuando se recarga la página
+window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+});
+
+// Scroll to top cuando la página carga
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
+// Scroll to top para navegación back/forward
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        window.scrollTo(0, 0);
+    }
+});
+
 // Prevent context menu
 document.addEventListener('contextmenu', e => e.preventDefault());
 
@@ -105,8 +133,8 @@ setTimeout(createPlanets, 1500);
 setTimeout(() => setInterval(rotatePlanet, 5000), 4000);
 
 // ============================================
-// LOADING SCREEN - REAL PRELOADING SYSTEM
-// Precarga real de recursos para 0 lag
+// LOADING SCREEN - SISTEMA DE PRECARGA ROBUSTO
+// Precarga completa de todos los recursos
 // ============================================
 const bar = document.getElementById('loadingBar');
 const pct = document.getElementById('loadingPercent');
@@ -262,47 +290,82 @@ function checkLibraries() {
     });
 }
 
-// Sistema de carga principal
+// Sistema de carga principal - ROBUSTO
 async function startRealLoading() {
+    // Scroll to top inmediato
+    window.scrollTo(0, 0);
+
     updateProgress(5, 'Inicializando...');
 
-    // Fase 1: Verificar librerías (0-20%)
+    // Fase 1: Verificar librerías (0-15%)
     updateProgress(10, 'Cargando librerías 3D...');
     await checkLibraries();
-    updateProgress(20, 'Librerías listas ✓');
+    updateProgress(15, 'Librerías listas ✓');
 
-    // Fase 2: Precargar imágenes (20-70%)
-    updateProgress(25, 'Precargando imágenes...');
+    // Fase 2: Precargar imágenes críticas (15-40%)
+    updateProgress(18, 'Precargando imágenes críticas...');
     totalResources = criticalImages.length;
+    resourcesLoaded = 0;
 
-    const imagePromises = criticalImages.map(async (src, i) => {
+    const criticalPromises = criticalImages.map(async (src) => {
         await preloadImage(src);
         resourcesLoaded++;
-        const imageProgress = 20 + (resourcesLoaded / totalResources) * 50;
-        updateProgress(imageProgress, `Cargando imagen ${resourcesLoaded}/${totalResources}...`);
+        const imageProgress = 15 + (resourcesLoaded / totalResources) * 25;
+        updateProgress(imageProgress, `Cargando ${resourcesLoaded}/${totalResources}...`);
     });
 
-    await Promise.all(imagePromises);
-    updateProgress(70, 'Imágenes listas ✓');
+    await Promise.all(criticalPromises);
+    updateProgress(40, 'Imágenes críticas ✓');
 
-    // Fase 3: Precargar video (70-85%)
-    updateProgress(75, 'Preparando video...');
+    // Fase 3: Precargar TODAS las imágenes del DOM (40-60%)
+    updateProgress(42, 'Cargando recursos adicionales...');
+    const allDomImages = document.querySelectorAll('img[src]');
+    const domImageSrcs = Array.from(allDomImages).map(img => img.src).filter(src => src);
+
+    if (domImageSrcs.length > 0) {
+        let domLoaded = 0;
+        const domPromises = domImageSrcs.map(async (src) => {
+            await preloadImage(src);
+            domLoaded++;
+            const domProgress = 40 + (domLoaded / domImageSrcs.length) * 20;
+            updateProgress(domProgress, `Optimizando ${domLoaded}/${domImageSrcs.length}...`);
+        });
+        await Promise.all(domPromises);
+    }
+    updateProgress(60, 'Recursos listos ✓');
+
+    // Fase 4: Precargar video (60-75%)
+    updateProgress(62, 'Preparando video...');
     await preloadVideo();
-    updateProgress(85, 'Video listo ✓');
+    updateProgress(75, 'Video listo ✓');
 
-    // Fase 4: Preparar animaciones (85-95%)
-    updateProgress(90, 'Inicializando animaciones...');
+    // Fase 5: Esperar fuentes (75-85%)
+    updateProgress(78, 'Cargando fuentes...');
+    if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+    }
+    updateProgress(85, 'Fuentes listas ✓');
+
+    // Fase 6: Preparar animaciones y renderizado (85-95%)
+    updateProgress(88, 'Inicializando animaciones...');
+
+    // Forzar reflow para que todo esté renderizado
+    document.body.offsetHeight;
 
     // Dar tiempo para que el DOM esté completamente listo
-    await new Promise(r => setTimeout(r, 200));
+    await new Promise(r => setTimeout(r, 300));
     updateProgress(95, 'Preparando interfaz...');
 
-    // Fase 5: Finalizar (95-100%)
-    await new Promise(r => setTimeout(r, 300));
+    // Fase 7: Finalizar (95-100%)
+    await new Promise(r => setTimeout(r, 400));
     updateProgress(100, '¡Listo!');
 
     showDone();
     await new Promise(r => setTimeout(r, 500));
+
+    // Scroll to top antes de mostrar
+    window.scrollTo(0, 0);
+
     finishLoading();
 }
 
@@ -315,6 +378,44 @@ function finishLoading() {
 
     // Activar animaciones de la página principal
     initAnimations();
+
+    // Mostrar el selector de idioma después de la carga (solo móvil)
+    initLangToggleMobile();
+}
+
+// ============================================
+// LANGUAGE TOGGLE MOBILE - Dinámico según scroll
+// ============================================
+function initLangToggleMobile() {
+    const langToggle = document.getElementById('langToggle');
+    if (!langToggle) return;
+
+    // Verificar si es móvil
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // Mostrar después de un pequeño delay
+        setTimeout(() => {
+            langToggle.classList.add('lang-visible');
+        }, 500);
+
+        // Manejar scroll para cambiar posición
+        let langScrollTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!langScrollTicking) {
+                requestAnimationFrame(() => {
+                    // Si scrolleó más de 50px, bajar el toggle
+                    if (window.scrollY > 50) {
+                        langToggle.classList.add('lang-scrolled');
+                    } else {
+                        langToggle.classList.remove('lang-scrolled');
+                    }
+                    langScrollTicking = false;
+                });
+                langScrollTicking = true;
+            }
+        }, { passive: true });
+    }
 }
 
 // Empezar carga real después de un pequeño delay

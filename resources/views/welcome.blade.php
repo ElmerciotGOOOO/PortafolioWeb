@@ -876,7 +876,7 @@
                     align-items: center;
                     gap: 1rem;
                 }
-                
+
                 .testimonials-slider {
                     display: flex;
                     gap: 1.5rem;
@@ -885,31 +885,38 @@
                     flex: 1;
                     padding: 1rem 0;
                 }
-                
+
                 .testimonials-slider .testimonial-card {
                     flex: 0 0 calc(33.333% - 1rem);
                     min-width: 300px;
                 }
-                
+
                 @media (max-width: 1024px) {
                     .testimonials-slider .testimonial-card {
                         flex: 0 0 calc(50% - 0.75rem);
                     }
                 }
-                
+
                 @media (max-width: 768px) {
                     .testimonials-slider .testimonial-card {
                         flex: 0 0 85%;
                     }
-                    .slider-nav { display: none !important; }
+
+                    .slider-nav {
+                        display: none !important;
+                    }
+
                     .testimonials-slider {
                         overflow-x: auto;
                         scroll-snap-type: x mandatory;
                         -webkit-overflow-scrolling: touch;
                     }
-                    .testimonials-slider .testimonial-card { scroll-snap-align: start; }
+
+                    .testimonials-slider .testimonial-card {
+                        scroll-snap-align: start;
+                    }
                 }
-                
+
                 .slider-nav {
                     width: 48px;
                     height: 48px;
@@ -924,18 +931,18 @@
                     transition: all 0.3s;
                     flex-shrink: 0;
                 }
-                
+
                 .slider-nav:hover {
                     background: rgba(0, 80, 255, 0.2);
                     transform: scale(1.1);
                 }
-                
+
                 .slider-nav:disabled {
                     opacity: 0.3;
                     cursor: not-allowed;
                     transform: none;
                 }
-                
+
                 .testimonials-placeholder {
                     width: 100%;
                     display: flex;
@@ -948,13 +955,13 @@
                     border-radius: 20px;
                     min-height: 200px;
                 }
-                
+
                 .testimonials-placeholder h4 {
                     color: rgba(255, 255, 255, 0.7);
                     font-size: 1.1rem;
                     margin-bottom: 0.5rem;
                 }
-                
+
                 .testimonials-placeholder p {
                     color: rgba(255, 255, 255, 0.4);
                     font-size: 0.9rem;
