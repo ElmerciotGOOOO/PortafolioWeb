@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}">
     <!-- Defer scripts pesados para no bloquear renderizado -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
@@ -1320,8 +1320,7 @@
         </footer>
     </div>
 
-    <script defer src="{{ asset('js/app.js') }}"></script>
-    <script defer src="{{ asset('js/globe.js') }}"></script>
+    <script defer src="{{ asset('js/app.js') }}?v={{ time() }}"></script><script defer src="{{ asset('js/globe.js') }}"></script>
     <script defer src="{{ asset('js/techPhysics.js') }}"></script>
     <script src="{{ asset('js/i18n.js') }}"></script>
 
